@@ -1,0 +1,23 @@
+
+public class Tree {
+	public class Node
+	{
+		int value;
+		Node left=null;
+		Node right=null;
+		Node(int value)
+		{
+			this.value=value;
+			left=null;
+			right=null;
+		}
+	}
+	public class insert(Node node,int value)
+	{
+		if(value<Node.value)
+		{
+			
+		}
+	}
+
+}

@@ -1,0 +1,137 @@
+package DataStructures;
+import java.util.*;
+
+class Node 
+{
+	int value;
+	Node next;
+	Node(int value)
+	{
+		this.value=value;
+	}
+}
+public class LinkdeList {
+	Node head=null;
+	int lenght=0;
+
+	public void push(int value)
+	{
+		Node curr = new Node(value);
+		if(head==null)
+		{
+			head=curr;
+		}
+		else
+		{
+			curr.next=head;
+			head=curr;
+		}
+	}
+	public void display()
+	{
+		Node temp=head;
+		while(temp!=null)
+		{
+			System.out.print(temp.value+" ");
+			temp=temp.next;
+		}
+	}
+	public void delete(int key)
+	{
+		Node temp=head;
+		Node prev=null;
+		if(head.value==key)
+		{
+			head=head.next;
+			return;
+		}
+		while(temp.value!=key)
+		{
+			prev=temp;
+			temp=temp.next;
+			if(temp==null)
+			{
+				System.out.println("Not in the list");
+				return;
+			}
+		}
+		prev.next=temp.next;
+	}
+	public void append(int value)
+	{
+		Node temp=head;
+		while(temp.next!=null)
+		{
+			temp=temp.next;
+		}
+		temp.next=new Node(value);
+	}
+	public int recursiveLenght(Node root)
+	{
+		
+		Node temp=root;
+		if(temp==null)
+		{
+			return 0;
+		}
+		return 1+recursiveLenght(temp.next);
+	}
+	public void swapNodes(int k1, int k2)
+	{
+		Node t1;
+		Node t2;
+		Node tp1=null;
+		Node tp2=null;
+		Node temp1,temp2;
+		t1=t2=head;
+		while(t1.value!=k1)
+		{
+			tp1=t1;
+			t1=t1.next;
+		}
+		while(t2.value!=k2)
+		{
+			tp2=t2;
+			t2=t2.next;
+		}
+		temp1=t1.next;
+		temp2=t2.next;
+		t1.next=temp2;
+		t2.next=temp1;
+		tp1.next=t2;
+		tp2.next=t1;
+	}
+    static void reversePrint(Node head) {
+        if(head==null)
+        {
+            return;
+        }
+        Stack<Integer> stack=new Stack<Integer>();
+        Node temp=head;
+        while(temp!=null)
+        {
+            stack.push(temp.value);
+            temp=temp.next;
+        }
+        while(!stack.isEmpty())
+        {
+            System.out.println(stack.pop());
+        }
+
+
+    }
+	public static void main(String[] args)
+	{
+		LinkdeList ll= new LinkdeList();
+		ll.push(10);
+		ll.push(0);
+		ll.push(-10);
+		ll.push(-20);
+		ll.append(20);
+		ll.append(30);
+		ll.append(40);
+		ll.display();
+		ll.reversePrint(ll.head);
+		
+	}
+}

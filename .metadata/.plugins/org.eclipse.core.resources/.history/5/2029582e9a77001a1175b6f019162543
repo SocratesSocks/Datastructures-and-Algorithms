@@ -1,0 +1,15 @@
+package mongo; 
+import com.mongodb.client.MongoDatabase; 
+import com.mongodb.MongoClient; 
+import com.mongodb.MongoCredential;  
+
+public class test {
+	MongoClient a = new MongoClient();
+	MongoClient mongo = new MongoClient( "localhost" , 27017 ); 
+
+    MongoCredential credential = MongoCredential.createCredential("sampleUser", "myDb", "password".toCharArray());   
+    
+    // Accessing the database 
+    MongoDatabase database = mongo.getDatabase("myDb"); 
+     
+}

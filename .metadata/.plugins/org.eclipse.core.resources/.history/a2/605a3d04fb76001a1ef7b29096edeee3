@@ -1,0 +1,12 @@
+package Collectins;
+import java.util.*;
+
+public class Collections {
+
+	public static void main(String[] args)
+	{
+		List<Integer> list = new ArrayList();
+		list.add("dsa");
+		
+	}
+}

@@ -1,0 +1,50 @@
+
+public class Tree {
+	static class Node
+	{
+		int value;
+		Node left=null;
+		Node right=null;
+		Node(int value)
+		{
+			this.value=value;
+			left=null;
+			right=null;
+		}
+	}
+	public void insert(Node node,int value)
+	{
+		if(value<node.value)
+		{
+			if(node.left!=null)
+			{
+				insert(node.left,value);
+			}
+			else
+			{
+				System.out.println("Inserted "+value+"To left of"+node.value);
+				node.left=new Node(value);
+			}
+		}
+		else if(value>node.value)
+		{
+			if(node.right!=null)
+			{
+				insert(node.right,value);
+			}
+			else 
+			{
+				System.out.println("Inserted :"+value+" To right of :"+node.value);
+				node.right=new Node(value);
+			}
+		}
+	}
+	public static void main(String[] args)
+	{
+		Tree t = new Tree();
+		Node root = new Node(10);
+		t.insert(root, 20);
+		t.insert(root,1);
+	}
+
+}

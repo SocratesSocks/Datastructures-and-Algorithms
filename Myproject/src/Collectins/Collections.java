@@ -1,0 +1,44 @@
+package Collectins;
+import java.util.*;
+class student
+{
+	private String Name;
+	private int age;
+	student(String name,int age)
+	{
+		this.Name=name;
+		this.age=age;
+	}
+	@Override
+	public String toString()
+	{
+		return "Student Name is : "+this.Name +"\nstudent age is : "+this.age;
+	}
+}
+
+public class Collections {
+
+	public static void main(String[] args)
+	{
+		List<student> list = new ArrayList();
+		student s1=new student("s1",10);
+		student s2=new student("s2",20);
+		student s3=new student("s3",30);
+		student s4=new student("s4",40);
+		student s5=new student("s5",50);
+		list.add(s1);
+		list.add(s2);
+		list.add(s3);
+		list.add(s4);
+		list.add(s5);
+		list.remove(s5);
+		Iterator<student> itr=list.iterator();
+		while(itr.hasNext())
+		{
+			System.out.println(itr.next());
+		}
+		System.out.println(list.toArray()[0]);
+		
+		
+	}
+}

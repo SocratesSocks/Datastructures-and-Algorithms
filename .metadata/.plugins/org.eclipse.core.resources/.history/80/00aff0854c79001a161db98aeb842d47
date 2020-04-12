@@ -1,0 +1,24 @@
+package Algorithms;
+import java.math.BigInteger;
+
+public class test {
+	static long fact(int n)
+	{
+		if(n==0)
+		{
+			return 1;
+		}
+		else
+		{
+			return n*fact(n-1);
+		}
+	}
+	public static void main(String[] args)
+	{
+		BigInteger a=new BigInteger("10");
+		a.multiply(20);
+		long res=fact(25);
+		System.out.println(res);
+	}
+
+}

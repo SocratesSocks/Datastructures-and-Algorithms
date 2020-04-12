@@ -1,0 +1,89 @@
+package DataStructures;
+
+class Node 
+{
+	int value;
+	Node next;
+	Node(int value)
+	{
+		this.value=value;
+	}
+}
+public class LinkdeList {
+	Node head=null;
+	int lenght=0;
+
+	public void push(int value)
+	{
+		Node curr = new Node(value);
+		if(head==null)
+		{
+			head=curr;
+		}
+		else
+		{
+			curr.next=head;
+			head=curr;
+		}
+	}
+	public void display()
+	{
+		Node temp=head;
+		while(temp!=null)
+		{
+			System.out.print(temp.value+" ");
+			temp=temp.next;
+		}
+	}
+	public void delete(int key)
+	{
+		Node temp=head;
+		Node prev=null;
+		if(head.value==key)
+		{
+			head=head.next;
+			return;
+		}
+		while(temp.value!=key)
+		{
+			prev=temp;
+			temp=temp.next;
+			if(temp==null)
+			{
+				System.out.println("Not in the list");
+				return;
+			}
+		}
+		prev.next=temp.next;
+	}
+	public void append(int value)
+	{
+		Node temp=head;
+		while(temp.next!=null)
+		{
+			temp=temp.next;
+		}
+		temp.next=new Node(value);
+	}
+	public int recursiveLenght(Node root)
+	{
+		
+		Node temp=root;
+		if(temp==null)
+		{
+			return 0;
+		}
+		return 1+recursiveLenght(temp.next);
+	}
+	public static void main(String[] args)
+	{
+		LinkdeList ll= new LinkdeList();
+		ll.push(10);
+		ll.push(0);
+		ll.push(-10);
+		ll.push(-20);
+		ll.append(20);
+		ll.display();
+		
+	}
+}

@@ -1,0 +1,28 @@
+package Collectins;
+
+interface inf1
+{
+	public void m1();
+}
+interface inf2 
+{
+	public void m2();
+	
+}
+class testClass implements inf1,inf2
+{
+	public void m1()
+	{
+		System.out.println("this is m1() ");
+		
+	}
+}
+public class test {
+
+	public static void main(String[] args)
+	{
+		testClass obj=new testClass();
+		obj.m2();
+	}
+
+}

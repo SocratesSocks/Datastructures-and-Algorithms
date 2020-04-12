@@ -1,0 +1,22 @@
+package Algorithms;
+import java.math.BigInteger;
+
+public class test {
+	static int fact(int n)
+	{
+		int res=n;
+		for(int i=n-1;i>0;i--)
+		{
+			res=res*n;
+		}
+		return res;
+	}
+	public static void main(String[] args)
+	{
+		BigInteger a=new BigInteger("10");
+		a.multiply(a);
+		long res=fact(25);
+		System.out.println(res);
+	}
+
+}

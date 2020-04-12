@@ -1,0 +1,102 @@
+
+public class Tree {
+	static class Node
+	{
+		int value;
+		Node left=null;
+		Node right=null;
+		Node(int value)
+		{
+			this.value=value;
+			left=null;
+			right=null;
+		}
+	}
+	public void insert(Node node,int value)
+	{
+		if(value<node.value)
+		{
+			if(node.left!=null)
+			{
+				insert(node.left,value);
+			}
+			else
+			{
+				System.out.println("Inserted : "+value+" To left of : "+node.value);
+				node.left=new Node(value);
+			}
+		}
+		else if(value>node.value)
+		{
+			if(node.right!=null)
+			{
+				insert(node.right,value);
+			}
+			else 
+			{
+				System.out.println("Inserted : "+value+" To right of : "+node.value);
+				node.right=new Node(value);
+			}
+		}
+	}
+	public int containsNode(Node current,int value)
+	{
+		if(current==null)
+		{
+			return 0;
+		}
+		if(current.value==value)
+		{
+			return 1;
+		}
+		if(value<current.value)
+		{
+			return containsNode(current.left,value);
+		}
+		else if(value>current.value)
+		{
+			return containsNode(current.right,value);
+		}
+		return -1;
+	}
+	public void deleteNode(Node current , int value)
+	{
+		
+		if(current.value>value)
+		{
+			
+			deleteNode(current.left,value);
+		}
+		else if(value>current.value)
+		{
+			deleteNode(current.right,value);
+		}
+		if(current.value==value)
+		{
+			if(current.left == null && current.right==null)
+			{
+				current=null;
+			}
+			else if(current.left==null)
+			{
+				current=current.right;
+			}
+			else if(current.right==null)
+			{
+				current=current.left;
+			}
+		}
+	}
+	public static void main(String[] args)
+	{
+		Tree t = new Tree();
+		Node root = new Node(10);
+		t.insert(root, 20);
+		t.insert(root,1);
+		t.insert(root, 30);
+		t.insert(root,5);
+		t.deleteNode(root, 5);
+		System.out.println(t.containsNode(root, 300));
+	}
+
+}
